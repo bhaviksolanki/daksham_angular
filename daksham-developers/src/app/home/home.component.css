@@ -1,0 +1,30 @@
+/* Welcome To Daksham Developers */
+.homepage-about-container {
+    margin: 2rem auto;
+    font-weight: bold;
+    color: #47AD9F;
+    font-size: 35px;
+    text-align: left;
+    padding: 0% 10%;
+}
+
+.homepage-about-content {
+    text-align: left;
+    color: #ba9f5b;
+    font-size: 20px;
+}
+
+
+/* Welcome To Daksham Developers */
+@media screen and (max-width: 767px) {
+    .homepage-about-container {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .homepage-about-content {
+        text-align: center;
+        font-size: 15px;
+
+    }
+}

@@ -1,1 +1,7 @@
-<p>home works!</p>
+<!-- About Daksham Developers  -->
+<div class="homepage-about-container" *ngIf="welcomeText">
+    <span>{{welcomeText['fields']['title']}}</span>
+    <div class="homepage-about-content">
+        {{welcomeText['fields']['welcomeHome']}}
+    </div>
+</div>

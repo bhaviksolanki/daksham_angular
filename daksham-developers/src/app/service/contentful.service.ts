@@ -20,4 +20,8 @@ export class ContentfulService {
     this.client.getEntries().then(entries => console.log(entries));
   }
 
+  getEntryForId(entryId: string): Promise<Entry<any>> {
+    return this.client.getEntry(entryId);
+  }
+
 }
