@@ -8,13 +8,14 @@ export class ContentfulService {
 
   constructor() { }
 
+  //Creating and connecting to Contentful portal
   private client = createClient({
-    space: 'w57gzb4qgj5k',
-    accessToken: 'QVX5ptM_aUuGlBN4jlft5f-rtseGVGc-cXEJ5QJhLBc'
+    space: '33lr6dgc9bli',
+    accessToken: 'qr7fXJPSUNtRxNOKwbYM6WwxcJHeJ7_nxqZvmQ7F2PU'
   });
 
   getAllEntries() {
-    const entry = this.client.getEntry('2GmpBHtA2FqsvuSoXe6Ebm');
+    const entry = this.client.getEntry('4rw7iySqVK641Utmd2Fpck');
     console.log(entry)
     this.client.getEntries().then(entries => console.log(entries));
   }
