@@ -2,7 +2,11 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div *ngFor="let project of projects; let i = index" class="carousel-item" [class.active]="i === 0">
-                <img [src]="project.fields.banner.fields.file.url" class="d-block w-100" [alt]="project.fields.title">
+                <img *ngIf="isMobileView; else desktopView" [src]="project.fields.mobileBanner.fields.file.url" class="d-block w-100"
+                    [alt]="project.fields.title">
+                <ng-template #desktopView>
+                    <img [src]="project.fields.banner.fields.file.url" class="d-block w-100" [alt]="project.fields.title">
+                </ng-template>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"

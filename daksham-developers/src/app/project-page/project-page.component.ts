@@ -18,10 +18,7 @@ export class ProjectPageComponent implements OnInit {
   //projects;
 
   ngOnInit(): void {
-    this.contentfulService.getProject('projects').then((project) => {
-      this.projects = project;
-      console.log(project);
-    });
+
 
   }
 }

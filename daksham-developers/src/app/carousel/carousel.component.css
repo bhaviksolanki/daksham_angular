@@ -1,7 +1,7 @@
 .carousel-item img {
     width: 100%;
     height: auto;
-    aspect-ratio: 2.81/1;
+    
     /* Set the aspect ratio */
 }
 
@@ -31,4 +31,9 @@
 
 .dot:hover {
     cursor: pointer;
+}
+@media only screen and (min-width: 769px) {
+    .carousel-item img {
+        aspect-ratio: 2.81/1;
+    }
 }
