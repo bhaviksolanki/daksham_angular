@@ -30,9 +30,11 @@
 .dot:hover {
     cursor: pointer;
 }
+/* carousel.component.css */
 .carousel-fade .carousel-item {
-    transition: opacity 1s ease;
     opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+        /* Increased duration and smooth easing function */
 }
 
 .carousel-fade .carousel-item.active {
@@ -45,6 +47,8 @@
 .carousel-fade .carousel-item-prev.active {
     left: 0;
     transform: translate3d(0, 0, 0);
+    transition: opacity 1.5s ease-in-out;
+        /* Ensure all transitions match */
 }
 @media only screen and (min-width: 769px) {
     .carousel-item img {
