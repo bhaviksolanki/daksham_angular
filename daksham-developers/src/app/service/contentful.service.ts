@@ -25,10 +25,10 @@ export class ContentfulService {
     return this.client.getEntry(entryId);
   }
 
-  getProject(contentType: string): Promise<any[]> {
-    return this.client.getEntries({ content_type: contentType }).then((response) => {
-      return response.items; // Ensure this is an array
-    });
+  getProjects(): Promise<Entry<any>[]> {
+    return this.client.getEntries({
+      content_type: 'projects' // adjust based on your content type
+    }).then(response => response.items);
   }
 
 }
