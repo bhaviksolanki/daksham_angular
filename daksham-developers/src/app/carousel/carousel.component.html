@@ -2,7 +2,7 @@
     <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div *ngFor="let project of projects; let i = index" class="carousel-item" [class.active]="i === activeDotIndex">
-                <img *ngIf="isMobileView; else desktopView" [src]="project.fields.mobilebanner.fields.file.url"
+                <img *ngIf="isMobileView; else desktopView" [src]="project.fields.mobileBanner.fields.file.url"
                     class="d-block w-100" [alt]="project.fields.title">
                 <ng-template #desktopView>
                     <img [src]="project.fields.banner.fields.file.url" class="d-block w-100" [alt]="project.fields.title">
