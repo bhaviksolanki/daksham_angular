@@ -1,8 +1,6 @@
 .carousel-item img {
     width: 100%;
     height: auto;
-    
-    /* Set the aspect ratio */
 }
 
 /* The dots/bullets/indicators */
@@ -32,8 +30,31 @@
 .dot:hover {
     cursor: pointer;
 }
+.carousel-fade .carousel-item {
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item-next.active,
+.carousel-fade .carousel-item-prev.active {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+}
 @media only screen and (min-width: 769px) {
     .carousel-item img {
         aspect-ratio: 2.81/1;
+    }
+}
+@media only screen and (max-width: 769px) {
+    .dots {
+        height: 30px;
+        top: 90%;
+        left: 40%;
     }
 }

@@ -1,6 +1,7 @@
 /* Welcome To Daksham Developers */
 .homepage-about-container {
-    margin: 5rem auto;
+    margin-top: 8rem;
+        margin-bottom: 2rem;
     font-weight: bold;
     color: #47AD9F;
     font-size: 35px;
