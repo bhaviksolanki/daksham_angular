@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { createClient, Entry } from 'contentful';
+import { createClient, Entry, EntryCollection } from 'contentful';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,15 @@ export class ContentfulService {
     this.client.getEntries().then(entries => console.log(entries));
   }
 
+  //Get Entry for Home Page Welcome Model
   getEntryForId(entryId: string): Promise<Entry<any>> {
     return this.client.getEntry(entryId);
+  }
+
+  getProject(contentType: string): Promise<any[]> {
+    return this.client.getEntries({ content_type: contentType }).then((response) => {
+      return response.items; // Ensure this is an array
+    });
   }
 
 }

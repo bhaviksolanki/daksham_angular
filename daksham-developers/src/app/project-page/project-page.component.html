@@ -1,0 +1,11 @@
+<p>project-page works!</p>
+<ul>
+    <li *ngFor="let project of projects">
+        {{ project.fields.title }}
+        <!-- <img [src]="project.fields.banner.fields.file.url" alt=""> -->
+
+        <pre>
+                {{project | json }}
+        </pre>
+    </li>
+</ul>
