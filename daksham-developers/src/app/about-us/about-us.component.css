@@ -1,8 +1,5 @@
 /* Apply Roboto font to all elements within the columns and the body */
 /* Update font-family to Roboto in other elements as needed */
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
-
 .team-head-text,
 .name,
 .position,
