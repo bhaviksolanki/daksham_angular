@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ScrollService } from '../service/scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +11,10 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
 
-  openEnquiryForm() {
-    // Implement logic for opening the enquiry form
-  }
+  constructor(private scrollService: ScrollService) { }
 
-  myFunction() {
-    // Implement logic for toggling the navigation menu
+  scrollToFooter() {
+    this.scrollService.scroll();
   }
 
 }
