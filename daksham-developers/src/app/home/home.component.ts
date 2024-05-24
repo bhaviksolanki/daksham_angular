@@ -32,14 +32,14 @@ export class HomeComponent implements OnInit {
     const entryId = '4rw7iySqVK641Utmd2Fpck';
     this.contentfulService.getEntryForId(entryId).then((entry) => {
       this.welcomeText = entry;
-      console.log(entry);
+      console.log('Welcome Text:', this.welcomeText);
     });
 
     this.projects$ = this.contentfulService.getProjects();
     this.projects$.subscribe((projects) => {
       this.projects = projects;
+      console.log('Projects :', this.projects);
     });
-
     this.checkViewport();
     this.startAutoSlide();
   }

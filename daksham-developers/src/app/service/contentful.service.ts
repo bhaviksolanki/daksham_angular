@@ -33,4 +33,10 @@ export class ContentfulService {
     return from(projects);
   }
 
+  getProjectById(projectId: string) {
+    const projectData = this.client.getEntry(projectId);
+    console.log(projectData);
+    return from(projectData);
+  }
+
 }

@@ -1,0 +1,67 @@
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* The dots/bullets/indicators */
+.dots {
+    display: inline-block;
+    height: 30px;
+    position: absolute;
+    top: 85%;
+    left: 47%;
+    width: 100px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #D7B96D;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #47AD9F;
+}
+
+.dot:hover {
+    cursor: pointer;
+}
+
+/* carousel.component.css */
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    /* Increased duration and smooth easing function */
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item-next.active,
+.carousel-fade .carousel-item-prev.active {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 1.5s ease-in-out;
+    /* Ensure all transitions match */
+}
+
+@media only screen and (min-width: 769px) {
+    .carousel-item img {
+        aspect-ratio: 2.81/1;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .dots {
+        height: 30px;
+        top: 90%;
+        left: 40%;
+    }
+}
