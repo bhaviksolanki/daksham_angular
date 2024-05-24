@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient, Entry, EntryCollection } from 'contentful';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +26,11 @@ export class ContentfulService {
     return this.client.getEntry(entryId);
   }
 
-  getProjects(): Promise<Entry<any>[]> {
-    return this.client.getEntries({
+  getProjects() {
+    const projects = this.client.getEntries({
       content_type: 'projects' // adjust based on your content type
     }).then(response => response.items);
+    return from(projects);
   }
 
 }
