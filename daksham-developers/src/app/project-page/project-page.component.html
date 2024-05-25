@@ -27,6 +27,7 @@
     </div>
     <!--Image Slider Ends -->
 
+    <!--Location -->
     <div class="location-header">
         <div class="heading animate">
             <h2>Location of {{projectData.fields.title}}</h2>
@@ -40,15 +41,12 @@
             <div class="col-lg-6 pl-5">
                 <h4>Location Advantages</h4>
                 <ul class="list loc">
-                    <li>Khar Metro Station - 4 Min Walking</li>
-                    <li>Ryan International School - 0.1Km - 1 Min Walking</li>
-                    <li>DMart - 1.2 Km - 4Min </li>
-                    <li>Banks - 120mtr - 4min walking</li>
-                    <li>Park - 130mtr - 5 Min Waniverse is that none of it has tried to contact us.</li>
+                    <div class="rich-text-content" *ngIf="richTextHtml" [innerHTML]="richTextHtml"></div>
                 </ul>
             </div>
         </div>
     </div>
+    <!--Location Ends-->
     <!-- RERA Number and QR Code-->
     
     <div class="rera-container">
