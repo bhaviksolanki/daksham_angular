@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<!--Image Slider -->
 <main *ngIf="projectData$ | async as projectData">
     <div class="carousel-container">
         <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -24,6 +25,20 @@
             </button>
         </div>
     </div>
+    <!--Image Slider Ends -->
+    
+    <!-- RERA Number and QR Code-->
+    
+    <div class="rera-container">
+        <div class="left-section" *ngIf="projectData?.fields?.reraQrCode?.fields?.file?.url">
+            <img [src]="projectData.fields.reraQrCode.fields.file.url" alt="Image">
+        </div>
+        <div class="right-section" *ngIf="projectData?.fields?.reraNumber">
+            <h4>MahaRERA Registration No: {{projectData.fields.reraNumber}}</h4>
+            <a href="https://maharera.mahaonline.gov.in" target="_blank">For more details visit the MAHARERA website</a>
+            <h6>&#169; 2023. ALL RIGHTS RESERVED</h6>
+        </div>
+    </div>
 
-    </main>
+</main>
 <app-footer></app-footer>

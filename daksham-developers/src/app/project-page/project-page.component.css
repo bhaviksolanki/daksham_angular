@@ -65,3 +65,63 @@
         left: 40%;
     }
 }
+/*RERA QR Code & Number*/
+.rera-container {
+    background-color: #47AD9F;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.left-section,
+.right-section {
+    width: 45%;
+    padding-top: 2%;
+    text-align: center;
+    /* Center align content */
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+.right-section {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.right-section a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.right-section a:hover {
+    color: #ba9f5b;
+}
+
+.right-section h4 {
+    margin-top: 5%;
+}
+
+.left-section img {
+    display: block;
+    margin: 0 auto;
+    max-width: 25%;
+    height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .rera-container {
+        flex-direction: column;
+        /* Stack sections vertically */
+        align-items: center;
+        /* Center align items vertically */
+    }
+
+    .left-section,
+    .right-section {
+        width: 90%;
+    }
+}
