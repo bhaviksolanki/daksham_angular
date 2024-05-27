@@ -1,12 +1,11 @@
-<!-- <app-carousel [projects]="projects"></app-carousel> -->
 <!-- Carousel Component -->
 <app-navbar></app-navbar>
-<div class="carousel-container" *ngIf="projects$ | async as projects">
-    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div *ngFor="let project of projects; let i = index" class="carousel-item"
-                [class.active]="i === activeDotIndex">
-                <a [routerLink]="['project',project.sys.id]"> <img *ngIf="isMobileView; else desktopView"
+<main *ngIf="projects$ | async as projects">
+    <c-carousel [animate]="false" transition="crossfade">
+        <c-carousel-inner>
+            <c-carousel-item *ngFor="let project of projects">
+                <a [routerLink]="['project',project.sys.id]">
+                    <img *ngIf="isMobileView; else desktopView"
                         [src]="project.fields.mobileBanner.fields.file.url" class="d-block w-100"
                         [alt]="project.fields.title">
                     <ng-template #desktopView>
@@ -14,28 +13,15 @@
                             [alt]="project.fields.title">
                     </ng-template>
                 </a>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev" (click)="prevSlide()">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next" (click)="nextSlide()">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <div class="dots">
-        <span *ngFor="let project of projects; let i = index" class="dot" data-bs-target="#carouselExampleControls"
-            [attr.data-bs-slide-to]="i" [class.active]="i === activeDotIndex" [class.active-dot]="i === activeDotIndex"
-            (click)="goToSlide(i)">
-        </span>
-    </div>
-</div>
-<!-- Carousel Component Ends-->
+            </c-carousel-item>
+            </c-carousel-inner>
+            <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+            <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Next" direction="next"></c-carousel-control>
+            </c-carousel>
+            <!--Image Slider Ends -->
 
+<!-- Carousel Component Ends-->
+    
 <!-- About Daksham Developers  -->
 <div class="homepage-about-container" *ngIf="welcomeText">
     <span>{{welcomeText['fields']['title']}}</span>
@@ -44,4 +30,5 @@
     </div>
 </div>
 <!-- About Daksham Developers Ends -->
+</main>
 <app-footer></app-footer>

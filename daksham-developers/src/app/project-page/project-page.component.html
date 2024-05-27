@@ -10,12 +10,12 @@
                     <img [src]="slide.fields.file.url" class="d-block w-100" [alt]="projectData.fields.title">
                     </ng-template>
             </c-carousel-item>
-            </c-carousel-inner>
-            <c-carousel-control *ngIf="projectData.fields.sliderImages.length > 1" [routerLink] caption="Previous"
+        </c-carousel-inner>
+        <c-carousel-control *ngIf="projectData.fields.sliderImages.length > 1" [routerLink] caption="Previous"
                 direction="prev"></c-carousel-control>
-            <c-carousel-control *ngIf="projectData.fields.sliderImages.length > 1" [routerLink] caption="Next"
+        <c-carousel-control *ngIf="projectData.fields.sliderImages.length > 1" [routerLink] caption="Next"
                 direction="next"></c-carousel-control>
-            </c-carousel>
+    </c-carousel>
     <!--Image Slider Ends -->
 
     <!--Location -->
