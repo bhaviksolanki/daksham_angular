@@ -22,7 +22,6 @@ import { HammerModule } from '@angular/platform-browser';
 })
 export class ProjectPageComponent implements OnInit {
 
-  projects: any | undefined;
   projectData$!: Observable<any>;
   richTextHtml: string | undefined;
   isMobileView = false;

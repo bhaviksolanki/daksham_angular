@@ -1,5 +1,6 @@
+<main *ngIf="projectData$ | async as projectData">
 <div class="slider-container">
-    <div class="slider-item" *ngFor="let projectData of projects; let i = index" [ngClass]="{
+    <div class="slider-item" *ngFor="let amenityImage of projectData.fields.amenityImages;; let i = index" [ngClass]="{
         'selected':i === selectedIndex,
         'prev':i === selectedIndex - 1,
         'next':i === selectedIndex + 1,
@@ -7,11 +8,9 @@
         'hideRight':i > selectedIndex + 1,
 
     }">
-        <pre>
-                {{projectData | json }}
-            </pre>
-        <img [src]="projectData.fields.sliderImages.fields.file.url" [alt]="projectData.imgAlt" class="slider-img"
+    <img [src]="amenityImage.fields.file.url" [alt]="projectData.imgAlt" class="slider-img"
             (panright)="showPrev(i)" (panleft)="showNext(i)">
 
     </div>
 </div>
+</main>
