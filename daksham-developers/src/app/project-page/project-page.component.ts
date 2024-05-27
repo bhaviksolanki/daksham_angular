@@ -1,20 +1,21 @@
-import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ContentfulService } from '../service/contentful.service';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { CommonModule, NgFor } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Observable } from 'rxjs';
+import { ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, CarouselItemComponent, CarouselControlComponent } from '@coreui/angular';
 
 @Component({
   selector: 'app-project-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink],
   templateUrl: './project-page.component.html',
   styleUrls: ['./project-page.component.css']
 })
-export class ProjectPageComponent implements OnInit, OnDestroy {
+export class ProjectPageComponent implements OnInit {
 
   projects: any | undefined;
   projectData$!: Observable<any>;
@@ -37,7 +38,6 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
     });
 
     this.checkViewport();
-    this.startAutoSlide();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -45,45 +45,10 @@ export class ProjectPageComponent implements OnInit, OnDestroy {
     this.checkViewport();
   }
 
-  ngOnDestroy() {
-    this.stopAutoSlide();
-  }
 
   checkViewport() {
     this.isMobileView = window.innerWidth < 768; // Assuming 768px is the breakpoint for mobile devices
   }
 
-  startAutoSlide() {
-    this.intervalId = setInterval(() => {
-      this.nextSlide();
-    }, 5000); // Change slide every 5 seconds
-  }
 
-  stopAutoSlide() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
-
-  nextSlide() {
-    this.projectData$.subscribe(projectData => {
-      if (projectData?.fields.sliderImages) {
-        this.activeDotIndex = (this.activeDotIndex + 1) % projectData.fields.sliderImages.length;
-      }
-    });
-  }
-
-  prevSlide() {
-    this.projectData$.subscribe(projectData => {
-      if (projectData?.fields.sliderImages) {
-        this.activeDotIndex = (this.activeDotIndex - 1 + projectData.fields.sliderImages.length) % projectData.fields.sliderImages.length;
-      }
-    });
-  }
-
-  goToSlide(index: number) {
-    this.activeDotIndex = index;
-    this.stopAutoSlide();
-    this.startAutoSlide(); // Reset the interval when manually changing slides
-  }
 }
