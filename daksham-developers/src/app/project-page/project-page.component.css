@@ -250,3 +250,7 @@ ul.list li {
     font-family: 'Roboto',
         sans-serif;
 }
+.container {
+    width: 600px;
+    height: 300px;
+}

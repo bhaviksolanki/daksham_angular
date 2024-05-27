@@ -7,13 +7,18 @@ import { FooterComponent } from '../footer/footer.component';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Observable } from 'rxjs';
 import { ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, CarouselItemComponent, CarouselControlComponent } from '@coreui/angular';
+import { TouchSliderComponent } from "./touch-slider/touch-slider.component";
+import { HammerModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink],
   templateUrl: './project-page.component.html',
-  styleUrls: ['./project-page.component.css']
+  styleUrls: ['./project-page.component.css'],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective,
+    CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent,
+    NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink,
+    TouchSliderComponent, HammerModule]
 })
 export class ProjectPageComponent implements OnInit {
 
