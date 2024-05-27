@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <!--Image Slider -->
 <main *ngIf="projectData$ | async as projectData">
-    <c-carousel [animate]="false" transition="crossfade">
+    <c-carousel [animate]="false" [dark]="true" transition="crossfade">
+        <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let slide of projectData.fields.sliderImages;">
                 <img *ngIf="isMobileView; else desktopView" [src]="slide.fields.file.url" class="d-block w-100"
