@@ -290,6 +290,9 @@ ul.list li {
 }
 
 /*********************************/
+.brochure-section-container {
+    padding-top: 2%;
+}
 
 .gallery {
     width: 100%;
@@ -358,7 +361,7 @@ ul.list li {
 
 @media only screen and (max-width: 767px) {
     .brochure-section-container {
-        margin-top: 5%;
+        padding-top: 5%;
     }
 
     .gallery {
