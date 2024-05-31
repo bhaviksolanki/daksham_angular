@@ -19,12 +19,32 @@
     </c-carousel>
     <!--Image Slider Ends -->
     <!-- Amenities-->
-    <div class="container">
+    <!-- <div class="container">
         <h1 class="text-center section-heading">Amenity</h1>
         <app-touch-slider [projectData$]="projectData$"></app-touch-slider>
-    </div>
-
+    </div> -->
+    
     <!-- Amenities Ends-->
+    <!--Brochure section-->
+    <div class="w3-container brochure-section-container">
+        <div class="brochure-section">
+            <h2>Floor Plan <a class="download-brochure" *ngIf="projectData.fields.brochurepdf" target="_blank"
+                    [href]="projectData.fields.brochurepdf.fields.file.url"><i class="fa fa-download"></i></a></h2>
+        </div>
+        <div class="gallery">
+            <img [src]="selectedImage" alt="Main Image" class="main-image">
+            <div class="thumbnails">
+                <img [src]="floorplan.fields.file.url" *ngFor="let floorplan of projectData.fields.floorPlan"
+                    [alt]="floorplan.fields.title" class="thumbnail" (click)="updateMainImage(floorplan.fields.file.url)">
+            </div>
+        </div>
+        <p class="click-to-view-image-text">Click to view in full size.</p>
+        </div>
+        
+        
+        
+        
+        <!--Brochure Section ends-->
     <!--Location -->
     <div class="location-header">
         <div class="heading animate">

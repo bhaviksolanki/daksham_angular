@@ -268,3 +268,114 @@ ul.list li {
         font-size: 35px;
         padding-top: 15px;
 }
+/**Brochure Section */
+.brochure-section-container {
+    box-sizing: inherit;
+}
+
+.brochure-section h2 {
+    font-weight: bold;
+    text-align: center;
+    color: #47AD9F;
+}
+
+.click-to-view-image-text {
+    margin-top: 10px;
+    text-align: center;
+    color: #ba9f5b;
+}
+
+.fa-download {
+    font-size: 24px;
+}
+
+/*********************************/
+
+.gallery {
+    width: 100%;
+    max-width: 1000px;
+    /* Maximum width for desktop view */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Selected image */
+.main-image {
+    width: 100%;
+    max-width: 700px;
+    margin-left: 15%;
+    margin-top: 2%;
+    height: 500px;
+    /* Height for selected image */
+    object-fit: contain;
+    /* Maintain aspect ratio */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Shadow for main image */
+    transition: opacity 0.5s ease-in-out;
+    /* Smooth fading transition */
+}
+
+.fa-download {
+    font-size: 24px;
+    color: #47AD9F;
+    margin-right: 2%;
+}
+
+/* Thumbnails container */
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Thumbnail images */
+.thumbnail {
+    width: 100px;
+    /* Thumbnail width */
+    height: 70px;
+    /* Thumbnail height */
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive layout */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .thumbnails {
+        flex-wrap: wrap;
+    }
+
+    .main-image {
+        width: 75%;
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .brochure-section-container {
+        margin-top: 5%;
+    }
+
+    .gallery {
+        max-width: 100%;
+        margin-top: 2%;
+        /* Full width for mobile view */
+    }
+
+    .thumbnail {
+        width: 75px;
+        /* Smaller thumbnail size for mobile */
+        height: 50px;
+    }
+
+    .main-image {
+        width: 90%;
+        height: 300px;
+        margin-left: 5%;
+    }
+}
