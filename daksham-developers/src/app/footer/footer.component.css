@@ -73,7 +73,12 @@ ul.social-media li a:hover {
 @media only screen and (max-width: 991px) {
     .col {
         flex-basis: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+        
+        .social-media-header {
+            height: 100px;
     }
 }
 

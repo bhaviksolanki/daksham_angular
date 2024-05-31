@@ -65,72 +65,127 @@
         left: 40%;
     }
 }
-/*RERA QR Code & Number*/
-.rera-container {
-    background-color: #47AD9F;
+
+/**Brochure Section */
+.brochure-section-container {
+    box-sizing: inherit;
+}
+
+.brochure-section h2 {
+    font-weight: bold;
+    text-align: center;
+    color: #47AD9F;
+    }
+    
+    .click-to-view-image-text {
+        margin-top: 10px;
+        text-align: center;
+        color: #ba9f5b;
+    }
+    
+    .fa-download {
+        font-size: 24px;
+    }
+    
+    .brochure-section-container {
+        padding-top: 2%;
+    }
+    
+    .gallery {
+        width: 100%;
+        max-width: 1000px;
+        /* Maximum width for desktop view */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Selected image */
+.main-image {
+    width: 100%;
+    max-width: 700px;
+    margin-left: 15%;
+    margin-top: 2%;
+    height: 500px;
+    /* Height for selected image */
+    object-fit: contain;
+    /* Maintain aspect ratio */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Shadow for main image */
+    transition: opacity 0.5s ease-in-out;
+    /* Smooth fading transition */
+}
+
+.fa-download {
+    font-size: 24px;
+    color: #47AD9F;
+    margin-right: 2%;
+}
+
+/* Thumbnails container */
+.thumbnails {
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.left-section,
-.right-section {
-    width: 45%;
-    padding-top: 2%;
-    text-align: center;
-    /* Center align content */
-    margin: 0 auto;
-    /* Center horizontally */
+/* Thumbnail images */
+.thumbnail {
+    width: 100px;
+    /* Thumbnail width */
+    height: 70px;
+    /* Thumbnail height */
+    object-fit: cover;
+    cursor: pointer;
 }
 
-.right-section {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
+.thumbnail:hover {
+    transform: scale(1.1);
 }
 
-.right-section a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-}
-
-.right-section a:hover {
-    color: #ba9f5b;
-}
-
-.right-section h4 {
-    margin-top: 5%;
-    color: white;
-}
-
-.left-section img {
-    display: block;
-    margin: 0 auto;
-    max-width: 25%;
-    height: auto;
-}
-
-@media only screen and (max-width: 768px) {
-    .rera-container {
-        flex-direction: column;
-        /* Stack sections vertically */
-        align-items: center;
-        /* Center align items vertically */
+/* Responsive layout */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .thumbnails {
+        flex-wrap: wrap;
     }
 
-    .left-section,
-    .right-section {
+                                                                .main-image {
+                                                                    width: 75%;
+                                                                    height: 400px;
+                                                                }
+                                                                }
+                                
+                                                                @media only screen and (max-width: 767px) {
+                                                                    .brochure-section-container {
+                                                                        padding-top: 5%;
+                                                                    }
+                                
+                                                                    .gallery {
+                                                                        max-width: 100%;
+                                                                        margin-top: 2%;
+                                                                        /* Full width for mobile view */
+                                                                    }
+                                
+                                                                    .thumbnail {
+                                                                        width: 75px;
+                                                                        /* Smaller thumbnail size for mobile */
+                                                                        height: 50px;
+                                                                    }
+                                
+                                                                    .main-image {
         width: 90%;
+        height: 300px;
+            margin-left: 5%;
     }
 }
+
 /*Location Section*/
 .location-header {
     background-color: #f2f2f2;
     color: #47AD9F;
     font-family: 'Roboto', sans-serif;
+    padding-bottom: 2%;
 }
 
 .heading {
@@ -194,6 +249,9 @@ ul.list li {
 
 /* Tablet View */
 @media screen and (max-width: 992px) {
+    .location-header {
+            padding-bottom: 5%;
+        }
     .row {
         flex-direction: column;
         align-items: center;
@@ -243,6 +301,7 @@ ul.list li {
         text-align: initial;
     }
 }
+
 .rich-text-content {
     font-size: 20px;
     line-height: 1;
@@ -251,134 +310,84 @@ ul.list li {
     font-family: 'Roboto',
         sans-serif;
 }
+
 .container {
     margin-top: 2%;
-        margin-bottom: 2%;
+    margin-bottom: 2%;
     width: 600px;
     height: 500px;
-    }
-    
-    .section-heading {
-        margin-bottom: 5%;
-    
-        color: #47AD9F;
-        font-family: 'Roboto', sans-serif;
-        text-align: center;
-        font-weight: bold;
-        font-size: 35px;
-        padding-top: 15px;
-}
-/**Brochure Section */
-.brochure-section-container {
-    box-sizing: inherit;
 }
 
-.brochure-section h2 {
-    font-weight: bold;
-    text-align: center;
+.section-heading {
+    margin-bottom: 5%;
+
     color: #47AD9F;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    padding-top: 15px;
 }
 
-.click-to-view-image-text {
-    margin-top: 10px;
+/*RERA QR Code & Number*/
+.rera-container {
+    background-color: #47AD9F;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.left-section,
+.right-section {
+    width: 45%;
+    padding-top: 2%;
     text-align: center;
+        /* Center align content */
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+.right-section {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.right-section a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.right-section a:hover {
     color: #ba9f5b;
 }
 
-.fa-download {
-    font-size: 24px;
+.right-section h4 {
+    margin-top: 5%;
+    color: white;
 }
 
-/*********************************/
-.brochure-section-container {
-    padding-top: 2%;
-}
-
-.gallery {
-    width: 100%;
-    max-width: 1000px;
-    /* Maximum width for desktop view */
+.left-section img {
+    display: block;
     margin: 0 auto;
-    position: relative;
+    max-width: 25%;
+    height: auto;
 }
 
-/* Selected image */
-.main-image {
-    width: 100%;
-    max-width: 700px;
-    margin-left: 15%;
-    margin-top: 2%;
-    height: 500px;
-    /* Height for selected image */
-    object-fit: contain;
-    /* Maintain aspect ratio */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    /* Shadow for main image */
-    transition: opacity 0.5s ease-in-out;
-    /* Smooth fading transition */
-}
-
-.fa-download {
-    font-size: 24px;
-    color: #47AD9F;
-    margin-right: 2%;
-}
-
-/* Thumbnails container */
-.thumbnails {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* Thumbnail images */
-.thumbnail {
-    width: 100px;
-    /* Thumbnail width */
-    height: 70px;
-    /* Thumbnail height */
-    object-fit: cover;
-    cursor: pointer;
-}
-
-.thumbnail:hover {
-    transform: scale(1.1);
-}
-
-/* Responsive layout */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .thumbnails {
-        flex-wrap: wrap;
-    }
-
-    .main-image {
-        width: 75%;
-        height: 400px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .brochure-section-container {
+@media only screen and (max-width: 768px) {
+    .rera-container {
+        flex-direction: column;
+        /* Stack sections vertically */
+        align-items: center;
         padding-top: 5%;
+        /* Center align items vertically */
     }
 
-    .gallery {
-        max-width: 100%;
-        margin-top: 2%;
-        /* Full width for mobile view */
-    }
-
-    .thumbnail {
-        width: 75px;
-        /* Smaller thumbnail size for mobile */
-        height: 50px;
-    }
-
-    .main-image {
+                                                                .left-section,
+                                                                .right-section {
         width: 90%;
-        height: 300px;
-        margin-left: 5%;
     }
 }
