@@ -7,22 +7,27 @@ import { FooterComponent } from '../footer/footer.component';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Observable } from 'rxjs';
 import { ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, CarouselItemComponent, CarouselControlComponent } from '@coreui/angular';
+import { TouchSliderComponent } from "./touch-slider/touch-slider.component";
+import { HammerModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink],
   templateUrl: './project-page.component.html',
-  styleUrls: ['./project-page.component.css']
+  styleUrls: ['./project-page.component.css'],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective,
+    CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent,
+    NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink,
+    TouchSliderComponent, HammerModule]
 })
 export class ProjectPageComponent implements OnInit {
 
-  projects: any | undefined;
   projectData$!: Observable<any>;
   richTextHtml: string | undefined;
   isMobileView = false;
   activeDotIndex = 0;
-  private intervalId: any;
+  projectData: any;
+  selectedImage: string = '';
 
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) { }
 
@@ -31,6 +36,8 @@ export class ProjectPageComponent implements OnInit {
       const projectId = params['id'];
       this.projectData$ = this.contentfulService.getProjectById(projectId);
       this.projectData$.subscribe(projectData => {
+        this.projectData = projectData;
+        this.initializeSelectedImage();
         if (projectData?.fields.locationAdvantage) {
           this.richTextHtml = documentToHtmlString(projectData.fields.locationAdvantage);
         }
@@ -41,13 +48,23 @@ export class ProjectPageComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  onResize() {
     this.checkViewport();
   }
 
 
   checkViewport() {
     this.isMobileView = window.innerWidth < 768; // Assuming 768px is the breakpoint for mobile devices
+  }
+
+  updateMainImage(imageUrl: string): void {
+    this.selectedImage = imageUrl;
+  }
+
+  initializeSelectedImage(): void {
+    if (this.projectData && this.projectData.fields.floorPlan && this.projectData.fields.floorPlan.length > 0) {
+      this.selectedImage = this.projectData.fields.floorPlan[0].fields.file.url;
+    }
   }
 
 
