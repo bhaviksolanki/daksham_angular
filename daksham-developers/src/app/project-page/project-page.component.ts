@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, CarouselItemComponent, CarouselControlComponent } from '@coreui/angular';
 import { TouchSliderComponent } from "./touch-slider/touch-slider.component";
 import { HammerModule } from '@angular/platform-browser';
+import { GoogleMapsModule } from "@angular/google-maps";
 
 @Component({
   selector: 'app-project-page',
@@ -18,16 +19,20 @@ import { HammerModule } from '@angular/platform-browser';
   imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective,
     CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent,
     NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink,
-    TouchSliderComponent, HammerModule]
+    TouchSliderComponent, HammerModule, GoogleMapsModule]
 })
 export class ProjectPageComponent implements OnInit {
 
   projectData$!: Observable<any>;
-  richTextHtml: string | undefined;
-  isMobileView = false;
-  activeDotIndex = 0;
   projectData: any;
+  isMobileView = false;
+  richTextHtml: string | undefined;
   selectedImage: string = '';
+  options: google.maps.MapOptions = {
+    mapId: "DEMO_MAP_ID",
+    center: { lat: 0, lng: 0 },  // Default center
+    zoom: 4,
+  };
 
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) { }
 
@@ -41,6 +46,9 @@ export class ProjectPageComponent implements OnInit {
         if (projectData?.fields.locationAdvantage) {
           this.richTextHtml = documentToHtmlString(projectData.fields.locationAdvantage);
         }
+        this.options = {
+          center: { lat: this.projectData?.fields?.location?.lat, lng: this.projectData?.fields?.location?.lng }
+        };
       });
     });
 
