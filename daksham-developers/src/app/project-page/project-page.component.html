@@ -9,15 +9,15 @@
                     [alt]="projectData.fields.title">
                 <ng-template #desktopView>
                     <img [src]="slide.fields.file.url" class="d-block w-100" [alt]="projectData.fields.title">
-                    </ng-template>
+                </ng-template>
             </c-carousel-item>
         </c-carousel-inner>
         <c-carousel-control *ngIf="projectData?.fields?.sliderImages && projectData.fields.sliderImages.length > 1" [routerLink]
             caption="Previous"
-                direction="prev"></c-carousel-control>
+            direction="prev"></c-carousel-control>
         <c-carousel-control *ngIf="projectData?.fields?.sliderImages && projectData.fields.sliderImages.length > 1" [routerLink]
             caption="Next"
-                direction="next"></c-carousel-control>
+            direction="next"></c-carousel-control>
     </c-carousel>
     <!--Image Slider Ends -->
     <!-- Amenities-->
@@ -25,7 +25,7 @@
         <h1 class="text-center section-heading">Amenity</h1>
         <app-touch-slider [projectData$]="projectData$"></app-touch-slider>
     </div> -->
-    
+
     <!-- Amenities Ends-->
     <!--Brochure section-->
     <div class="w3-container brochure-section-container"
@@ -42,7 +42,8 @@
             <img [src]="selectedImage" alt="Main Image" class="main-image">
             <div class="thumbnails" *ngIf="projectData.fields.floorPlan.length > 1">
                 <img [src]="floorplan.fields.file.url" *ngFor="let floorplan of projectData.fields.floorPlan"
-                    [alt]="floorplan.fields.title" class="thumbnail" (click)="updateMainImage(floorplan.fields.file.url)">
+                    [alt]="floorplan.fields.title" class="thumbnail"
+                    (click)="updateMainImage(floorplan.fields.file.url)">
             </div>
         </div>
             <p *ngIf="projectData.fields.floorPlan.length > 1" class="click-to-view-image-text">Click to view in full size.</p>
@@ -57,8 +58,9 @@
             <div class="col-lg-6">
                 <!-- <iframe src="projectData.fields.locationsrc" width="600" height="450" style="border:0;" allowfullscreen=""
                                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
             </div>
-    
+
             <div class="col-lg-6 pl-5">
                 <h4>Location Advantages</h4>
                 <ul class="list loc">
@@ -69,7 +71,7 @@
     </div>
     <!--Location Ends-->
     <!-- RERA Number and QR Code-->
-    
+
     <div class="rera-container">
         <div class="left-section" *ngIf="projectData?.fields?.reraQrCode?.fields?.file?.url">
             <img [src]="projectData.fields.reraQrCode.fields.file.url" [alt]="projectData.fields.reraQrCode.fields.title">

@@ -57,12 +57,12 @@ export class ProjectPageComponent implements OnInit {
     this.isMobileView = window.innerWidth < 768; // Assuming 768px is the breakpoint for mobile devices
   }
 
-  updateMainImage(imageUrl: string): void {
-    this.selectedImage = imageUrl;
+  updateMainImage(floorPlanImageUrl: string): void {
+    this.selectedImage = floorPlanImageUrl;
   }
 
   initializeSelectedImage(): void {
-    if (this.projectData && this.projectData.fields.floorPlan && this.projectData.fields.floorPlan.length > 0) {
+    if (this.projectData && this.projectData?.fields?.floorPlan && this.projectData.fields.floorPlan.length > 0) {
       this.selectedImage = this.projectData.fields.floorPlan[0].fields.file.url;
     }
   }

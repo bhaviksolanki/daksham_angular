@@ -1,33 +1,33 @@
 <!-- Carousel Component -->
 <app-navbar></app-navbar>
 <main *ngIf="projects$ | async as projects">
-<c-carousel [animate]="true" [dark]="true" transition="crossfade" class="custom-carousel-indicators">
-    <c-carousel-indicators></c-carousel-indicators>
-    <c-carousel-inner>
-        <c-carousel-item *ngFor="let project of projects">
-            <a [routerLink]="['project',project.sys.id]">
-                <img *ngIf="isMobileView; else desktopView" [src]="project.fields.mobileBanner.fields.file.url" class="d-block w-100"
-                    [alt]="project.fields.title">
-                <ng-template #desktopView>
-                    <img [src]="project.fields.banner.fields.file.url" class="d-block w-100" [alt]="project.fields.title">
+    <c-carousel [animate]="true" [dark]="true" transition="crossfade" class="custom-carousel-indicators">
+        <c-carousel-indicators></c-carousel-indicators>
+        <c-carousel-inner>
+            <c-carousel-item *ngFor="let project of projects">
+                <a [routerLink]="['project',project.sys.id]">
+                    <img *ngIf="isMobileView; else desktopView" [src]="project.fields.mobileBanner.fields.file.url" class="d-block w-100"
+                        [alt]="project.fields.title">
+                    <ng-template #desktopView>
+                        <img [src]="project.fields.banner.fields.file.url" class="d-block w-100" [alt]="project.fields.title">
                     </ng-template>
                 </a>
-                </c-carousel-item>
-                </c-carousel-inner>
-                <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Previous" direction="prev"></c-carousel-control>
-                <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Next" direction="next"></c-carousel-control>
-                </c-carousel>
-            <!--Image Slider Ends -->
+            </c-carousel-item>
+            </c-carousel-inner>
+        <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+        <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Next" direction="next"></c-carousel-control>
+        </c-carousel>
+        <!--Image Slider Ends -->
 
-<!-- Carousel Component Ends-->
+    <!-- Carousel Component Ends-->
     
-<!-- About Daksham Developers  -->
-<div class="homepage-about-container" *ngIf="welcomeText">
-    <span>{{welcomeText['fields']['title']}}</span>
-    <div class="homepage-about-content">
-        {{welcomeText['fields']['welcomeHome']}}
+    <!-- About Daksham Developers  -->
+    <div class="homepage-about-container" *ngIf="welcomeText">
+        <span>{{welcomeText['fields']['title']}}</span>
+        <div class="homepage-about-content">
+            {{welcomeText['fields']['welcomeHome']}}
+        </div>
     </div>
-</div>
-<!-- About Daksham Developers Ends -->
+    <!-- About Daksham Developers Ends -->
 </main>
 <app-footer></app-footer>

@@ -58,6 +58,19 @@
     }
 }
 
+@media only screen and (max-width: 769px) {
+    .dots {
+        height: 30px;
+        top: 90%;
+        left: 40%;
+    }
+}
+
+/*RERA QR Code & Number*/
+.rera-container {
+    background-color: #47AD9F;
+    display: flex;
+    flex-wrap: wrap;
 
 
 /**Brochure Section */
@@ -310,6 +323,22 @@ ul.list li {
     margin-bottom: 2%;
     width: 600px;
     height: 500px;
+}
+
+.section-heading {
+    margin-bottom: 5%;
+
+    color: #47AD9F;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    padding-top: 15px;
+}
+
+/**Brochure Section */
+.brochure-section-container {
+    box-sizing: inherit;
 }
 
 .section-heading {
