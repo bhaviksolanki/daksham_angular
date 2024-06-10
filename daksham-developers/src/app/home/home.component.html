@@ -13,14 +13,14 @@
                     </ng-template>
                 </a>
             </c-carousel-item>
-            </c-carousel-inner>
+        </c-carousel-inner>
         <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Previous" direction="prev"></c-carousel-control>
         <c-carousel-control *ngIf="projects.length > 1" [routerLink] caption="Next" direction="next"></c-carousel-control>
         </c-carousel>
         <!--Image Slider Ends -->
 
     <!-- Carousel Component Ends-->
-    
+
     <!-- About Daksham Developers  -->
     <div class="homepage-about-container" *ngIf="welcomeText">
         <span>{{welcomeText['fields']['title']}}</span>
