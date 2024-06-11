@@ -1,20 +1,19 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="customerReviews && customerReviews.length">
     <div id="testimonialCarousel" class="carousel customer-review">
         <div class="heading animate">
             <h2>What our customers say</h2>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" *ngFor="let review of customerReviews">
                 <div class="card shadow-sm rounded-3">
                     <div class="quotes display-2 text-body-tertiary">
                         <i class="bi bi-quote"></i>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">"1 Some quick example text to build on the card title and make up the
-                            bulk of the card's content."</p>
+                        <p class="card-text">{{ review.fields.customerReview }}</p>
                         <div class="d-flex align-items-center pt-2 justify-content-center">
                             <div>
-                                <h5 class="card-title fw-bold">~Jane Doe</h5>
+                                <h5 class="card-title fw-bold">~{{ review.fields.customerName }}</h5>
                             </div>
                         </div>
                     </div>

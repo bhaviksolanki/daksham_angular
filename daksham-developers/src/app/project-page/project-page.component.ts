@@ -29,11 +29,11 @@ export class ProjectPageComponent implements OnInit {
   isMobileView = false;
   richTextHtml: string | undefined;
   selectedImage: string = '';
-  options: google.maps.MapOptions = {
-    mapId: "DEMO_MAP_ID",
-    center: { lat: 0, lng: 0 },  // Default center
-    zoom: 4,
-  };
+  // options: google.maps.MapOptions = {
+  //   mapId: "DEMO_MAP_ID",
+  //   center: { lat: 0, lng: 0 },  // Default center
+  //   zoom: 4,
+  // };
 
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) { }
 

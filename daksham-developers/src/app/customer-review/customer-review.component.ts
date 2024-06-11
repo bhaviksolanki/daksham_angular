@@ -1,15 +1,32 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
+import { ContentfulService } from '../service/contentful.service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 declare const bootstrap: any; // Declare bootstrap to avoid TypeScript errors
 
 @Component({
   selector: 'app-customer-review',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './customer-review.component.html',
   styleUrls: ['./customer-review.component.css']
 })
-export class CustomerReviewComponent implements AfterViewInit {
+export class CustomerReviewComponent implements AfterViewInit, OnInit {
+
+  customerReview$: Observable<any> | undefined;
+  customerReviews: any[] = [];
+  constructor(private contentfulService: ContentfulService) { }
+
+  ngOnInit(): void {
+    this.customerReview$ = this.contentfulService.getAllCustomerReviews();
+    this.customerReview$.subscribe((customerReview) => {
+      this.customerReviews = customerReview;
+      console.log('Projects :', this.customerReviews);
+    });
+
+  }
 
   ngAfterViewInit(): void {
     const multipleItemCarousel = document.querySelector("#testimonialCarousel");
