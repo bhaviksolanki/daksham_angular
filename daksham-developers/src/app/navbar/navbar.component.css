@@ -21,6 +21,7 @@
 .navbar a:hover {
     font-weight: bold;
     cursor: pointer;
+    color: #D7B96D;
 }
 
 
@@ -66,11 +67,11 @@
     transform-origin: bottom left;
 }
 
-.nav-logo-a {
+.navbar-brand {
     max-width: 53%;
     padding-left: 15px !important;
     padding-right: 5px !important;
     padding-top: 7px !important;
-    padding-bottom: 8px !important;
+    padding-bottom: 6px !important;
 }
 
