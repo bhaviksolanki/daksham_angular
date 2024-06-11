@@ -39,4 +39,11 @@ export class ContentfulService {
     return from(projectData);
   }
 
+  getAllCustomerReviews() {
+    const customerReviews = this.client.getEntries({
+      content_type: 'customerReview'
+    }).then(response => response.items);
+    return from(customerReviews);
+  }
+
 }

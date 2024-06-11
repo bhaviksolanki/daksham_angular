@@ -34,6 +34,9 @@
     color: #47AD9F;
 }
 
+.carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
 @media screen and (min-width: 576px) {
     .carousel-inner {
         display: flex;

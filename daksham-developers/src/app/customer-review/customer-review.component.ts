@@ -1,46 +1,45 @@
-import { Component } from '@angular/core';
-import { AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
 
-declare const $: any;
-declare const bootstrap: any;
+declare const bootstrap: any; // Declare bootstrap to avoid TypeScript errors
 
 @Component({
   selector: 'app-customer-review',
   standalone: true,
-  imports: [],
   templateUrl: './customer-review.component.html',
-  styleUrl: './customer-review.component.css'
+  styleUrls: ['./customer-review.component.css']
 })
 export class CustomerReviewComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const multipleItemCarousel = document.querySelector("#testimonialCarousel");
 
-    if (window.matchMedia("(min-width:576px)").matches) {
+    if (multipleItemCarousel && window.matchMedia("(min-width:576px)").matches) {
       const carousel = new bootstrap.Carousel(multipleItemCarousel, {
         interval: false
       });
 
-      const carouselWidth = $(".carousel-inner")[0].scrollWidth;
-      const cardWidth = $(".carousel-item").width();
+      const carouselInner = multipleItemCarousel.querySelector('.carousel-inner') as HTMLElement;
+      const carouselItems = multipleItemCarousel.querySelectorAll('.carousel-item');
+      const cardWidth = carouselItems[0].clientWidth;
 
       let scrollPosition = 0;
 
-      $(".carousel-control-next").on("click", function () {
-        if (scrollPosition < carouselWidth - cardWidth * 3) {
-          console.log("next");
-          scrollPosition = scrollPosition + cardWidth;
-          $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 800);
+      multipleItemCarousel.querySelector('.carousel-control-next')?.addEventListener('click', () => {
+        if (scrollPosition < carouselInner.scrollWidth - cardWidth * 3) {
+          scrollPosition += cardWidth;
+          carouselInner.scrollTo({ left: scrollPosition, behavior: 'smooth' });
         }
       });
-      $(".carousel-control-prev").on("click", function () {
+
+      multipleItemCarousel.querySelector('.carousel-control-prev')?.addEventListener('click', () => {
         if (scrollPosition > 0) {
-          scrollPosition = scrollPosition - cardWidth;
-          $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 800);
+          scrollPosition -= cardWidth;
+          carouselInner.scrollTo({ left: scrollPosition, behavior: 'smooth' });
         }
       });
-    } else {
-      $(multipleItemCarousel).addClass("slide");
+    } else if (multipleItemCarousel) {
+      multipleItemCarousel.classList.add("slide");
     }
   }
 }
