@@ -46,9 +46,9 @@ export class ProjectPageComponent implements OnInit {
         if (projectData?.fields.locationAdvantage) {
           this.richTextHtml = documentToHtmlString(projectData.fields.locationAdvantage);
         }
-        this.options = {
-          center: { lat: this.projectData?.fields?.location?.lat, lng: this.projectData?.fields?.location?.lng }
-        };
+        // this.options = {
+        //   center: { lat: this.projectData.fields.location.lat, lng: this.projectData.fields.location.lng }
+        // };
       });
     });
 
