@@ -1,0 +1,64 @@
+.container-fluid {
+    margin-top: 0%;
+    padding-top: 0%;
+}
+
+.carousel-inner {
+    padding: 1em;
+}
+
+.customer-review {
+    background-color: #f2f2f2;
+}
+
+.card-text {
+    color: #D7B96D;
+}
+
+.card-title {
+    color: #47AD9F;
+}
+
+@media screen and (min-width: 576px) {
+    .carousel-inner {
+        display: flex;
+        width: 90%;
+        margin-inline: auto;
+        padding: 1em 0;
+        overflow: hidden;
+    }
+
+    .carousel-item {
+        display: block;
+        margin-right: 0;
+        flex: 0 0 calc(100% / 2);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .carousel-item {
+        display: block;
+        margin-right: 0;
+        flex: 0 0 calc(100% / 3);
+    }
+}
+
+.carousel .card {
+    margin: 0 0.5em;
+    border: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3rem;
+    height: 3rem;
+    background-color: #D7B96D;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #47AD9F;
+}

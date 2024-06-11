@@ -10,6 +10,7 @@ import { ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, Carouse
 import { TouchSliderComponent } from "./touch-slider/touch-slider.component";
 import { HammerModule } from '@angular/platform-browser';
 import { GoogleMapsModule } from "@angular/google-maps";
+import { CustomerReviewComponent } from '../customer-review/customer-review.component';
 
 @Component({
   selector: 'app-project-page',
@@ -19,7 +20,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
   imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective,
     CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent,
     NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink,
-    TouchSliderComponent, HammerModule, GoogleMapsModule]
+    TouchSliderComponent, HammerModule, GoogleMapsModule, CustomerReviewComponent]
 })
 export class ProjectPageComponent implements OnInit {
 
