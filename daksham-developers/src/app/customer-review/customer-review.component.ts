@@ -23,7 +23,7 @@ export class CustomerReviewComponent implements AfterViewInit, OnInit {
     this.customerReview$ = this.contentfulService.getAllCustomerReviews();
     this.customerReview$.subscribe((customerReview) => {
       this.customerReviews = customerReview;
-      console.log('Projects :', this.customerReviews);
+      console.log('Customer Reviews :', this.customerReviews);
     });
 
   }
