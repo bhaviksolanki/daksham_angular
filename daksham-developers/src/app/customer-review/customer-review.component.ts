@@ -25,9 +25,9 @@ export class CustomerReviewComponent implements OnInit {
   }
 
   updateItemsPerPage(width: number): void {
-    if (width >= 1024) {
+    if (width > 1024) {
       this.itemsPerPage = 3;
-    } else if (width >= 768) {
+    } else if (width > 768) {
       this.itemsPerPage = 2;
     } else {
       this.itemsPerPage = 1;
@@ -43,10 +43,11 @@ export class CustomerReviewComponent implements OnInit {
   }
 
   prev(): void {
-    if (this.currentIndex > 0) {
+    if (this.currentIndex >= 3) {
       this.currentIndex -= this.itemsPerPage;
     } else {
-      this.currentIndex = Math.max(this.customerReviews.length - this.itemsPerPage, 0);
+      this.currentIndex = 0;
     }
   }
+
 }
