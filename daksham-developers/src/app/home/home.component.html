@@ -5,7 +5,7 @@
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let project of projects">
-                <a [routerLink]="['project',project.sys.id]">
+                <a [routerLink]="['/project',project.sys.id]">
                     <img *ngIf="isMobileView; else desktopView" [src]="project.fields.mobileBanner.fields.file.url" class="d-block w-100"
                         [alt]="project.fields.title">
                     <ng-template #desktopView>

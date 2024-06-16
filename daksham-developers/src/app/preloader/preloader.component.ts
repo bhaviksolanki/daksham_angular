@@ -14,7 +14,7 @@ export class PreloaderComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['home']);
     }, 5000); // 5000 milliseconds = 5 seconds
   }
 }

@@ -17,8 +17,7 @@ export class ContentfulService {
 
   getAllEntries() {
     const entry = this.client.getEntry('4rw7iySqVK641Utmd2Fpck');
-    console.log(entry)
-    this.client.getEntries().then(entries => console.log(entries));
+    this.client.getEntries().then(entries => console.log("All Entries", entries));
   }
 
   //Get Entry for Home Page Welcome Model
@@ -35,7 +34,7 @@ export class ContentfulService {
 
   getProjectById(projectId: string) {
     const projectData = this.client.getEntry(projectId);
-    console.log(projectData);
+    console.log("Project Data", projectData);
     return from(projectData);
   }
 
