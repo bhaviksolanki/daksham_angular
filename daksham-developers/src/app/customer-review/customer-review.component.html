@@ -1,7 +1,7 @@
-<div class="heading animate">
+<div class="heading animate" *ngIf="customerReviews.length > 0">
     <h2>What our customers say</h2>
 </div>
-<div class="review-container">
+<div class="review-container" *ngIf="customerReviews.length > 0">
     <button (click)="prev()" class="nav-button">
         <i class="bi bi-chevron-left"></i>
     </button>
@@ -14,8 +14,8 @@
             <div class="review-content">
                 <h3>{{ review.fields.customerReview }}</h3>
                 <p class="customer-name">- {{ review.fields.customerName }}</p>
-                </div>
-                </div>
+            </div>
+            </div>
     </div>
     <button (click)="next()" class="nav-button">
         <i class="bi bi-chevron-right"></i>

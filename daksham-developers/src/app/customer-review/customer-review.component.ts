@@ -25,9 +25,9 @@ export class CustomerReviewComponent implements OnInit {
   }
 
   updateItemsPerPage(width: number): void {
-    if (width > 1024) {
+    if (width >= 1024) {
       this.itemsPerPage = 3;
-    } else if (width > 768) {
+    } else if (width >= 768) {
       this.itemsPerPage = 2;
     } else {
       this.itemsPerPage = 1;
