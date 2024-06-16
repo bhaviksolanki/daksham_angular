@@ -1,10 +1,6 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
-import { ContentfulService } from '../service/contentful.service';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-
-declare const bootstrap: any; // Declare bootstrap to avoid TypeScript errors
 
 @Component({
   selector: 'app-customer-review',
@@ -13,50 +9,44 @@ declare const bootstrap: any; // Declare bootstrap to avoid TypeScript errors
   templateUrl: './customer-review.component.html',
   styleUrls: ['./customer-review.component.css']
 })
-export class CustomerReviewComponent implements AfterViewInit, OnInit {
+export class CustomerReviewComponent implements OnInit {
 
-  customerReview$: Observable<any> | undefined;
-  customerReviews: any[] = [];
-  constructor(private contentfulService: ContentfulService) { }
+  @Input() customerReviews: any[] = [];
+  currentIndex = 0;
+  itemsPerPage = 3;
 
   ngOnInit(): void {
-    this.customerReview$ = this.contentfulService.getAllCustomerReviews();
-    this.customerReview$.subscribe((customerReview) => {
-      this.customerReviews = customerReview;
-      console.log('Customer Reviews :', this.customerReviews);
-    });
-
+    this.updateItemsPerPage(window.innerWidth);
   }
 
-  ngAfterViewInit(): void {
-    const multipleItemCarousel = document.querySelector("#testimonialCarousel");
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.updateItemsPerPage(event.target.innerWidth);
+  }
 
-    if (multipleItemCarousel && window.matchMedia("(min-width:576px)").matches) {
-      const carousel = new bootstrap.Carousel(multipleItemCarousel, {
-        interval: false
-      });
+  updateItemsPerPage(width: number): void {
+    if (width >= 1024) {
+      this.itemsPerPage = 3;
+    } else if (width >= 768) {
+      this.itemsPerPage = 2;
+    } else {
+      this.itemsPerPage = 1;
+    }
+  }
 
-      const carouselInner = multipleItemCarousel.querySelector('.carousel-inner') as HTMLElement;
-      const carouselItems = multipleItemCarousel.querySelectorAll('.carousel-item');
-      const cardWidth = carouselItems[0].clientWidth;
+  next(): void {
+    if (this.currentIndex < this.customerReviews.length - this.itemsPerPage) {
+      this.currentIndex += this.itemsPerPage;
+    } else {
+      this.currentIndex = 0;
+    }
+  }
 
-      let scrollPosition = 0;
-
-      multipleItemCarousel.querySelector('.carousel-control-next')?.addEventListener('click', () => {
-        if (scrollPosition < carouselInner.scrollWidth - cardWidth * 3) {
-          scrollPosition += cardWidth;
-          carouselInner.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-        }
-      });
-
-      multipleItemCarousel.querySelector('.carousel-control-prev')?.addEventListener('click', () => {
-        if (scrollPosition > 0) {
-          scrollPosition -= cardWidth;
-          carouselInner.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-        }
-      });
-    } else if (multipleItemCarousel) {
-      multipleItemCarousel.classList.add("slide");
+  prev(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex -= this.itemsPerPage;
+    } else {
+      this.currentIndex = Math.max(this.customerReviews.length - this.itemsPerPage, 0);
     }
   }
 }

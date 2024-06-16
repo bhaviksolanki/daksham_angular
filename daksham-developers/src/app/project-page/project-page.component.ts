@@ -29,6 +29,8 @@ export class ProjectPageComponent implements OnInit {
   isMobileView = false;
   richTextHtml: string | undefined;
   selectedImage: string = '';
+  customerReview$: Observable<any> | undefined;
+  customerReviews: any[] = [];
   // options: google.maps.MapOptions = {
   //   mapId: "DEMO_MAP_ID",
   //   center: { lat: 0, lng: 0 },  // Default center
@@ -50,6 +52,11 @@ export class ProjectPageComponent implements OnInit {
         // this.options = {
         //   center: { lat: this.projectData.fields.location.lat, lng: this.projectData.fields.location.lng }
         // };
+      });
+      this.customerReview$ = this.contentfulService.getAllCustomerReviews();
+      this.customerReview$.subscribe((customerReview) => {
+        this.customerReviews = customerReview;
+        console.log('Customer Reviews :', this.customerReviews);
       });
     });
 

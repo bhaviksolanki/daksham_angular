@@ -1,35 +1,14 @@
-<!--Customer Review Starts-->
-<div class="container-fluid" *ngIf="customerReviews && customerReviews.length">
-    <div id="testimonialCarousel" class="carousel customer-review">
-        <div class="heading animate">
-            <h2>What our customers say</h2>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active" *ngFor="let review of customerReviews">
-                <div class="card shadow-sm rounded-3">
-                    <div class="quotes display-2 text-body-tertiary">
-                        <i class="bi bi-quote"></i>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">{{ review.fields.customerReview }}</p>
-                        <div class="d-flex align-items-center pt-2 justify-content-center">
-                            <div>
-                                <h5 class="card-title fw-bold">~{{ review.fields.customerName }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Repeat for other carousel items with a single active item -->
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+<div class="heading animate">
+    <h2>What our customers say</h2>
 </div>
-<!--Customer Review Ends-->
+<div class="review-container">
+    <button (click)="prev()">Prev</button>
+    <div class="review-items">
+        <div *ngFor="let review of customerReviews.slice(currentIndex, currentIndex + itemsPerPage)"
+            class="review-item">
+            <h3>{{ review.fields.customerReview }}</h3>
+            <p>{{ review.fields.customerName }}</p>
+        </div>
+    </div>
+    <button (click)="next()">Next</button>
+</div>
