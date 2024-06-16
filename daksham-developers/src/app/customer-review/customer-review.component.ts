@@ -36,15 +36,15 @@ export class CustomerReviewComponent implements OnInit {
 
   next(): void {
     if (this.currentIndex < this.customerReviews.length - this.itemsPerPage) {
-      this.currentIndex += this.itemsPerPage;
+      this.currentIndex += 1;
     } else {
       this.currentIndex = 0;
     }
   }
 
   prev(): void {
-    if (this.currentIndex >= 3) {
-      this.currentIndex -= this.itemsPerPage;
+    if (this.currentIndex >= 1) {
+      this.currentIndex -= 1;
     } else {
       this.currentIndex = 0;
     }
