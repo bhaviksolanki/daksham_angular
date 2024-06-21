@@ -15,6 +15,11 @@
     font-size: 20px;
 }
 
+.click-to-view-image-text {
+    margin-top: 10px;
+    text-align: center;
+    color: #ba9f5b;
+}
 
 /* Welcome To Daksham Developers */
 @media screen and (max-width: 767px) {

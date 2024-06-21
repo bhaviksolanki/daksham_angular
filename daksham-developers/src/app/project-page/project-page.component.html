@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <!--Image Slider -->
 <main *ngIf="projectData$ | async as projectData">
-    <c-carousel [animate]="false" [dark]="true" [interval]=5000 transition="crossfade">
+    <c-carousel [animate]="false" [dark]="true" [interval]=4000 [pause]=false transition="crossfade">
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let slide of projectData.fields.sliderImages;">
