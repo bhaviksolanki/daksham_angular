@@ -1,7 +1,7 @@
 <!-- Carousel Component -->
 <app-navbar></app-navbar>
 <main *ngIf="projects$ | async as projects">
-    <c-carousel [animate]="true" [dark]="true" transition="crossfade" class="custom-carousel-indicators">
+    <c-carousel [animate]="true" [dark]="true" transition="crossfade" [interval]=5000 class="custom-carousel-indicators">
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let project of projects">

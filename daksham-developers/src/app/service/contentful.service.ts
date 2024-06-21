@@ -16,7 +16,7 @@ export class ContentfulService {
   });
 
   getAllEntries() {
-    const entry = this.client.getEntry('4rw7iySqVK641Utmd2Fpck');
+    //const entry = this.client.getEntry('4rw7iySqVK641Utmd2Fpck');
     this.client.getEntries().then(entries => console.log("All Entries", entries));
   }
 
