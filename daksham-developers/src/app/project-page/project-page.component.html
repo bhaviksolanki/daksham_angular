@@ -51,7 +51,10 @@
         </div>
         <div class="row m-0 p-0 mt-5 align-items-center">
             <div class="col-lg-6 google-map">
-                <!-- <google-map [options]="options"> </google-map> -->
+                <google-map height="450px" width="450px" [options]="options">
+                    <map-marker
+                        [position]="{ lat: projectData?.fields.latitudeCoordinate, lng: projectData?.fields.longitudeCoordinate }"></map-marker>
+                </google-map>
             </div>
 
             <div class="col-lg-6 pl-5">
