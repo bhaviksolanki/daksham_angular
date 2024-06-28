@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <!--Image Slider -->
 <main *ngIf="projectData$ | async as projectData">
-    <c-carousel [animate]="false" [dark]="true" [interval]=4000 [pause]=false transition="crossfade">
+    <c-carousel *ngIf="projectData?.fields?.sliderImages" [animate]="false" [dark]="true" [interval]=4000 [pause]=false
+        transition="crossfade">
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let slide of projectData.fields.sliderImages;">
@@ -26,7 +27,7 @@
 
     <!-- Amenities Ends-->
     <!--Brochure section-->
-    <div class="w3-container brochure-section-container">
+    <div class="w3-container brochure-section-container" *ngIf="projectData.fields.floorPlan">
         <div class="brochure-section">
             <h2>Floor Plan <a class="download-brochure" *ngIf="projectData.fields.brochurepdf" target="_blank"
                     [href]="projectData.fields.brochurepdf.fields.file.url"><i class="fa fa-download"></i></a></h2>
@@ -45,29 +46,31 @@
 
     <!--Brochure Section ends-->
     <!--Location -->
-    <div class="location-header">
+    <div class="location-header"
+        *ngIf="richTextHtml || (projectData?.fields?.latitudeCoordinate && projectData?.fields?.longitudeCoordinate) ">
         <div class="heading animate">
             <h2>Location of {{projectData.fields.title}}</h2>
         </div>
         <div class="row m-0 p-0 mt-5 align-items-center">
             <div class="col-lg-6 google-map">
-                <google-map height="450px" width="450px" [options]="options">
+                <google-map height="450px" width="450px" [options]="options"
+                    *ngIf="projectData?.fields?.latitudeCoordinate && projectData?.fields?.longitudeCoordinate">
                     <map-marker
                         [position]="{ lat: projectData?.fields.latitudeCoordinate, lng: projectData?.fields.longitudeCoordinate }"></map-marker>
                 </google-map>
             </div>
 
-            <div class="col-lg-6 pl-5">
+            <div class="col-lg-6 pl-5" *ngIf="richTextHtml">
                 <h4>Location Advantages</h4>
                 <ul class="list loc">
-                    <div class="rich-text-content" *ngIf="richTextHtml" [innerHTML]="richTextHtml"></div>
+                    <div class="rich-text-content" [innerHTML]="richTextHtml"></div>
                 </ul>
             </div>
         </div>
     </div>
     <!--Location Ends-->
     <!--Customer Reviews Starts-->
-    <app-customer-review [customerReviews]="customerReviews"></app-customer-review>
+    <app-customer-review *ngIf="customerReviews.length > 0" [customerReviews]="customerReviews"></app-customer-review>
     <!--Customer Review Ends-->
     <!-- RERA Number and QR Code-->
 

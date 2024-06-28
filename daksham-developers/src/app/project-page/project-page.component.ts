@@ -31,7 +31,6 @@ export class ProjectPageComponent implements OnInit {
   selectedImage: string = '';
   customerReview$: Observable<any> | undefined;
   customerReviews: any[] = [];
-  latitude: string = '';
   options: google.maps.MapOptions = {
     mapId: "7c712ea74729a6ea",
     center: { lat: 0, lng: 0 },  // Default center
@@ -50,9 +49,11 @@ export class ProjectPageComponent implements OnInit {
         if (projectData?.fields.locationAdvantage) {
           this.richTextHtml = documentToHtmlString(projectData.fields.locationAdvantage);
         }
-        this.options = {
-          center: { lat: this.projectData.fields.latitudeCoordinate, lng: this.projectData.fields.longitudeCoordinate }
-        };
+        if (projectData?.fields?.latitudeCoordinate && projectData?.fields?.longitudeCoordinate) { 
+          this.options = {
+            center: { lat: this.projectData?.fields?.latitudeCoordinate, lng: this.projectData?.fields?.longitudeCoordinate }
+          };
+        }
       });
       this.customerReview$ = this.contentfulService.getAllCustomerReviews();
       this.customerReview$.subscribe((customerReview) => {
