@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
   projects: any[] = [];
   isMobileView = false;
   activeDotIndex = 0;
-  private intervalId: any;
 
   ngOnInit(): void {
     const entryId = '4rw7iySqVK641Utmd2Fpck';

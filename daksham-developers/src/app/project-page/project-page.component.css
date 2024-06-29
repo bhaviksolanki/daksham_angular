@@ -3,7 +3,6 @@
     height: auto;
 }
 
-
 /* carousel.component.css */
 .carousel-fade .carousel-item {
     opacity: 0;
@@ -23,12 +22,6 @@
     transform: translate3d(0, 0, 0);
     transition: opacity 1.5s ease-in-out;
     /* Ensure all transitions match */
-}
-
-@media only screen and (min-width: 769px) {
-    .carousel-item img {
-        aspect-ratio: 2.81/1;
-    }
 }
 
 /*RERA QR Code & Number*/
@@ -79,25 +72,13 @@
     height: auto;
 }
 
-@media only screen and (max-width: 768px) {
-    .rera-container {
-        flex-direction: column;
-        /* Stack sections vertically */
-        align-items: center;
-        /* Center align items vertically */
-    }
-
-        .left-section,
-        .right-section {
-        width: 90%;
-    }
-}
 
 /*Location Section*/
 .location-header {
     background-color: #f2f2f2;
     color: #47AD9F;
     font-family: 'Roboto', sans-serif;
+    padding-bottom : 3%;
 }
 
 .heading {
@@ -123,17 +104,12 @@
 
 .col-lg-6 {
     width: 50%;
-    padding-left: 10%;
+    padding-left: 12%;
 }
 
 .location-adv {
     margin-top: 0px;
     padding-top: 0px;
-}
-
-.google-map {
-    padding-bottom: 5%;
-    padding-left: 15%;
 }
 
 h4 {
@@ -161,60 +137,6 @@ ul.list li {
     margin: auto;
 }
 
-/* Media queries for responsive design */
-
-/* Tablet View */
-@media screen and (max-width: 992px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .col-lg-6 {
-        width: 100%;
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    ul.list li {
-        font-weight: bold;
-        /* Making text bold */
-        text-align: center;
-        /* Centering text */
-    }
-}
-
-
-/* Mobile View */
-@media screen and (max-width: 576px) {
-    .heading h2 {
-        font-size: 25px;
-    }
-
-    h4 {
-        font-size: 25px;
-        text-align: center;
-    }
-
-    ul.list li {
-        font-size: 18px;
-    }
-}
-
-/* Desktop View */
-@media screen and (min-width: 992px) {
-    ul.list li {
-        font-weight: normal;
-        /* Reverting text to default */
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .map-container {
-        text-align: initial;
-    }
-}
-
 .rich-text-content {
     font-size: 20px;
     line-height: 1;
@@ -222,6 +144,7 @@ ul.list li {
     margin-bottom: 10px;
     font-family: 'Roboto',
         sans-serif;
+        margin-left: -20%;
 }
 
 .container {
@@ -320,40 +243,4 @@ ul.list li {
 .thumbnail:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px #ba9f5b;
-}
-
-/* Responsive layout */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .thumbnails {
-        flex-wrap: wrap;
-    }
-
-        .main-image {
-            width: 75%;
-            height: 400px;
-        }
-}
-
-@media only screen and (max-width: 767px) {
-    .brochure-section-container {
-        padding-top: 5%;
-    }
-
-        .gallery {
-            max-width: 100%;
-            margin-top: 2%;
-            /* Full width for mobile view */
-        }
-    
-        .thumbnail {
-            width: 75px;
-            /* Smaller thumbnail size for mobile */
-            height: 50px;
-        }
-    
-        .main-image {
-        width: 90%;
-        height: 300px;
-            margin-left: 5%;
-    }
 }
