@@ -7,7 +7,6 @@ import { FooterComponent } from '../footer/footer.component';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Observable } from 'rxjs';
 import { ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, CarouselItemComponent, CarouselControlComponent } from '@coreui/angular';
-import { TouchSliderComponent } from "./touch-slider/touch-slider.component";
 import { HammerModule } from '@angular/platform-browser';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CustomerReviewComponent } from '../customer-review/customer-review.component';
@@ -19,8 +18,7 @@ import { CustomerReviewComponent } from '../customer-review/customer-review.comp
   styleUrls: ['./project-page.component.css'],
   imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective,
     CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent,
-    NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink,
-    TouchSliderComponent, HammerModule, GoogleMapsModule, CustomerReviewComponent]
+    NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink, HammerModule, GoogleMapsModule, CustomerReviewComponent]
 })
 export class ProjectPageComponent implements OnInit {
 
