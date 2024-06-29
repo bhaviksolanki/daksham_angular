@@ -24,13 +24,7 @@
     /* Ensure all transitions match */
 }
 
-/*RERA QR Code & Number*/
-.rera-container {
-    background-color: #47AD9F;
-    display: flex;
-    flex-wrap: wrap;
 
-}
 
 .left-section,
 .right-section {
@@ -74,11 +68,21 @@
 
 
 /*Location Section*/
-.location-header {
+.location-container {
     background-color: #f2f2f2;
     color: #47AD9F;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     padding-bottom : 3%;
+   
+}
+
+.location-section{
+    display: flex;
+    flex-wrap: wrap;
+}
+.location-right-section h4{
+    text-align: left;
 }
 
 .heading {
@@ -86,6 +90,7 @@
 }
 
 .heading h2 {
+    width: 100%;
     text-align: center;
     font-weight: bold;
     font-size: 35px;
@@ -93,18 +98,16 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding-bottom: 40px;
-    align-items: left;
-}
-
-.col-lg-6 {
+.location-left-section {
     width: 50%;
     padding-left: 12%;
+    align-items: center;
+}
+
+.location-right-section {
+    padding-left: 5%;
+    width: 50%;
+    align-items: center;
 }
 
 .location-adv {
@@ -119,19 +122,6 @@ h4 {
     font-family: 'Roboto', sans-serif;
 }
 
-ul.list {
-    list-style-type: none;
-    padding-left: 20px;
-}
-
-ul.list li {
-    font-size: 20px;
-    line-height: 1.5;
-    color: #ba9f5b;
-    margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;
-}
-
 .map-container {
     text-align: center;
     margin: auto;
@@ -140,11 +130,11 @@ ul.list li {
 .rich-text-content {
     font-size: 20px;
     line-height: 1;
+    text-align: left;
     color: #ba9f5b;
     margin-bottom: 10px;
-    font-family: 'Roboto',
-        sans-serif;
-        margin-left: -20%;
+    font-family: "Roboto", sans-serif;
+    margin-left: -10%;
 }
 
 .container {
@@ -170,10 +160,22 @@ ul.list li {
     box-sizing: inherit;
 }
 
+/*RERA QR Code & Number*/
+.rera-container {
+    background-color: #47AD9F;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
 .brochure-section h2 {
-    font-weight: bold;
+    color: #47AD9F; 
+    width: 100%;
     text-align: center;
-    color: #47AD9F;
+    font-weight: bold;
+    font-size: 35px;
+    padding-top: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .click-to-view-image-text {
@@ -245,7 +247,7 @@ ul.list li {
     box-shadow: 0 0 10px #ba9f5b;
 }
 /**Responsive for Tablet View Only*/
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     .thumbnails {
         flex-wrap: wrap;
     }
@@ -253,6 +255,38 @@ ul.list li {
     .main-image {
         width: 75%;
         height: 400px;
+    }
+    .rera-container {
+        flex-direction: column;
+        /* Stack sections vertically */
+        align-items: center;
+        /* Center align items vertically */
+    }
+
+    .location-section {
+        flex-direction: column;
+    }
+    .rich-text-content{
+        text-align: center;
+        padding-left: 0%;
+    }
+
+    .location-left-section {
+        padding-left: 15%;
+        padding-top: 0%;
+        align-items: center;
+    }
+    .location-right-section{
+        padding-left: 0%;
+        padding-top: 3%;
+        width: 100%;
+    }
+    .location-right-section h4{
+        padding-left: 0%;
+        padding-top: 3%;
+        width: 100%;
+        align-items: center;
+        text-align: center;
     }
 }
 /** Responsive for Mobile view Only*/
@@ -289,5 +323,38 @@ ul.list li {
     .right-section {
         width: 90%;
     }
+    .location-section {
+        width: 90%;
+        flex-direction: column;
+    }
+    .rich-text-content{
+        text-align: center;
+        padding-left: 5%;
+    }
+
+    .location-left-section {
+        padding-left: 5%;
+        padding-top: 3%;
+        align-items: center;
+    }
+    .location-right-section{
+        padding-left: 17%;
+        padding-top: 3%;
+        width: 100%;
+        align-items: center;
+    }
+    .location-right-section h4{
+        /* padding-left: 5%;
+        padding-top: 3%;
+        width: 100%;
+        align-items: center; */
+        width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    padding-top: 15px;
+    font-family: 'Roboto', sans-serif;
+    }
+    
     
 }

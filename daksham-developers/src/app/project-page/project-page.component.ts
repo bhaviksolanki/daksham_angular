@@ -36,8 +36,12 @@ export class ProjectPageComponent implements OnInit {
     center: { lat: 0, lng: 0 },  // Default center
     zoom: 10,
   };
+  mapheight : string = "450px";
+  mapWidth : string = "500px";
 
-  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) { }
+  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) { 
+    this.setMapDimensions();
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -70,6 +74,21 @@ export class ProjectPageComponent implements OnInit {
     this.checkViewport();
   }
 
+  setMapDimensions(){
+    if(window.innerWidth>1024)
+      {
+        this.mapWidth = "500px";
+        this.mapheight = "450px";
+      }
+      else if(window.innerWidth<=1024 && window.innerWidth>768){
+        this.mapWidth = "700px";
+        this.mapheight = "325px";
+      }
+      else if(window.innerWidth<500){
+        this.mapWidth = "350px";
+      }
+      
+  }
 
   checkViewport() {
     this.isMobileView = window.innerWidth < 768; // Assuming 768px is the breakpoint for mobile devices
