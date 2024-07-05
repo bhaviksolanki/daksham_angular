@@ -1,0 +1,116 @@
+/* Styling for the modal */
+.w3-modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 3; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.w3-modal.show { 
+    display: block; 
+}
+    
+.w3-modal-content { 
+    margin: 15% auto; 
+    padding: 20px; 
+    border: 1px solid #888; 
+    width: 80%; 
+}
+
+.w3-button { 
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 95%;
+}
+
+
+/* Styling for the modal content */
+.w3-modal-content {
+  margin: 10% auto;
+  max-width: 400px;
+  background-color: #fff;
+  position: relative;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+/* Styling for the close button */
+.w3-button.w3-display-topright {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white; 
+  color: #f44336; 
+  transition-duration: 0.4s;
+}
+
+.w3-button.w3-display-topright:hover,
+.w3-button.w3-display-topright:focus {
+  background-color: #f44336;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling for the form container */
+.w3-container {
+  text-align: center;
+}
+
+/* Styling for the form input fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #D7B96D;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  color: #47AD9F;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+.textarea:focus {
+  outline: none;
+  border: 3px solid #47AD9F;
+}
+
+/* Styling for the form submit button */
+input[type="submit"] {
+  background-color: #D7B96D;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #74C4B9;
+}
+
+input[type="submit"]:focus {
+  outline: none;
+}
+.error {
+    color: red;
+    font-weight: bold;
+  }
+
+  .error-border {
+    border: 1px solid red !important;
+    margin-bottom: 1px !important;
+  }
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px !important;
+  }

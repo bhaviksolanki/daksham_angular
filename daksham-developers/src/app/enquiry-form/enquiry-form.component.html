@@ -1,0 +1,30 @@
+<div id="enquiryModal" class="w3-modal" [class.show]="show">
+    <div class="w3-modal-content w3-card-4">
+      <span class="w3-button w3-display-topright" (click)="close()">&times;</span>
+      <div class="w3-container">
+        <h3>Let Us Get In Touch</h3>
+        <form id="enquiryForm" #enquiryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+          <div>
+            <input type="text" id="name" name="name" placeholder="Enter Name" [(ngModel)]="from_name" #name="ngModel" required [ngClass]="{'error-border': name.invalid && name.touched}">
+            <div *ngIf="name.invalid && name.touched" class="error-message">
+              Name is required.
+            </div>
+          </div>
+          <div>
+            <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="from_email" #email="ngModel" required email [ngClass]="{'error-border': email.invalid && email.touched}">
+            <div *ngIf="email.invalid && email.touched" class="error-message">
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div>
+            <input type="tel" id="contact" name="contact" placeholder="Enter Number" [(ngModel)]="from_contact" #contact="ngModel" pattern="[0-9]{10}" title="Please enter a 10-digit number" required [ngClass]="{'error-border': contact.invalid && contact.touched}">
+            <div *ngIf="contact.invalid && contact.touched" class="error-message">
+              Please enter a valid 10-digit number.
+            </div>
+          </div>
+          <textarea class="textarea" id="message" rows="3" name="message" placeholder="What are you looking for" [(ngModel)]="message" required></textarea>
+          <input type="submit" value="Submit" [disabled]="enquiryForm.invalid">
+        </form>
+      </div>
+    </div>
+  </div>

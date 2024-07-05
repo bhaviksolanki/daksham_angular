@@ -11,8 +11,9 @@
             <div class="navbar-nav">
                 <a class="nav-aboutus hover-underline-animation" [routerLink]="['/about-us']">About Us</a>
                 <a class="nav-contactus hover-underline-animation" (click)="scrollToFooter()">Contact Us</a>
-                <a class="nav-enquiry hover-underline-animation" [routerLink]="['/home']">Enquiry</a>
+                <a class="nav-enquiry hover-underline-animation" (click)="openEnquiryModal()" >Enquiry</a>
             </div>
         </div>
     </div>
     </nav>
+    <app-enquiry-form></app-enquiry-form>
