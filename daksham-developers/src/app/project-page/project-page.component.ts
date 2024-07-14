@@ -54,7 +54,7 @@ export class ProjectPageComponent implements OnInit {
         if (projectData?.fields.locationAdvantage) {
           this.richTextHtml = documentToHtmlString(projectData.fields.locationAdvantage);
         }
-        this.items = this.projectData.fields.amenityImages;
+        this.items = this.projectData?.fields?.amenityImages;
         if (projectData?.fields?.latitudeCoordinate && projectData?.fields?.longitudeCoordinate) { 
           this.options = {
             center: { lat: this.projectData?.fields?.latitudeCoordinate, lng: this.projectData?.fields?.longitudeCoordinate }
@@ -112,7 +112,7 @@ export class ProjectPageComponent implements OnInit {
     }
   }
   showNext(i: number) {
-    if (this.selectedIndex < this.items?.length) {
+    if (this.selectedIndex < this.items?.length - 1) {
       this.selectedIndex = i + 1;
 
     }
