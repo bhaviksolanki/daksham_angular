@@ -15,7 +15,7 @@ import { CustomerReviewComponent } from '../customer-review/customer-review.comp
   selector: 'app-project-page',
   standalone: true,
   templateUrl: './project-page.component.html',
-  styleUrls: ['./project-page.component.css'],
+  styleUrls: ['./project-page.component.scss'],
   imports: [CommonModule, NavbarComponent, FooterComponent, ThemeDirective,
     CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent,
     NgFor, CarouselItemComponent, CarouselControlComponent, RouterLink, HammerModule, GoogleMapsModule, CustomerReviewComponent]
@@ -37,6 +37,9 @@ export class ProjectPageComponent implements OnInit {
   mapheight : string = "450px";
   mapWidth : string = "500px";
 
+  items : any[] = [];
+  selectedIndex = 0;
+
   constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) { 
     this.setMapDimensions();
   }
@@ -51,6 +54,7 @@ export class ProjectPageComponent implements OnInit {
         if (projectData?.fields.locationAdvantage) {
           this.richTextHtml = documentToHtmlString(projectData.fields.locationAdvantage);
         }
+        this.items = this.projectData.fields.amenityImages;
         if (projectData?.fields?.latitudeCoordinate && projectData?.fields?.longitudeCoordinate) { 
           this.options = {
             center: { lat: this.projectData?.fields?.latitudeCoordinate, lng: this.projectData?.fields?.longitudeCoordinate }
@@ -99,6 +103,18 @@ export class ProjectPageComponent implements OnInit {
   initializeSelectedImage(): void {
     if (this.projectData && this.projectData?.fields?.floorPlan && this.projectData.fields.floorPlan.length > 0) {
       this.selectedImage = this.projectData.fields.floorPlan[0].fields.file.url;
+    }
+  }
+
+  showPrev(i: number) {
+    if (this.selectedIndex > 0) {
+      this.selectedIndex = i - 1;
+    }
+  }
+  showNext(i: number) {
+    if (this.selectedIndex < this.items?.length) {
+      this.selectedIndex = i + 1;
+
     }
   }
 

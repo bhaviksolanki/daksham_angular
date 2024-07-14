@@ -23,9 +23,10 @@
     transition: opacity 1.5s ease-in-out;
     /* Ensure all transitions match */
 }
+/*** Amenities Section*/
 
 
-
+/*** Amenities Section Ends*/
 .left-section,
 .right-section {
     width: 45%;

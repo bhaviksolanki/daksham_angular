@@ -20,7 +20,21 @@
     </c-carousel>
     <!--Image Slider Ends -->
     <!-- Amenities-->
-
+     <div class="slider-main-container">
+     <div class="slider-container">
+        <div class="slider-item" *ngFor="let item of items; let i = index" 
+        [ngClass]="{
+            'selected':i === selectedIndex,
+            'prev':i === selectedIndex - 1,
+            'next':i === selectedIndex + 1,
+            'hideLeft': i < selectedIndex - 1,
+            'hideRight': i > selectedIndex + 1,
+        }">
+            <img [src]="item.fields.file.url" alt="" class="slider-img" (panright)="showPrev(i)"
+            (panleft)="showNext(i)">
+        </div>
+     </div>
+    </div>
     <!-- Amenities Ends-->
     <!--Brochure section-->
     <div class="w3-container brochure-section-container" *ngIf="projectData.fields.floorPlan">
