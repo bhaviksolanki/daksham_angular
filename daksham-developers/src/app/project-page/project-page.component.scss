@@ -96,21 +96,20 @@
         margin-top: 2%;
         margin-bottom: 7%;
     }
-
-
 }
 
 @media only screen and (max-width: 767px) {
 
     .slider-main-container{
-        width: 500px;
+        width: 100%;
         height: 250px;
-        margin-left: 2%;
+        margin-left: 0%;
         margin-top: 2%;
         margin-bottom: 15%;
     }
 
     .slider-container {
+        margin-left: 23%;
         .slider-item {
             width: 75%;
             height: 100%;
