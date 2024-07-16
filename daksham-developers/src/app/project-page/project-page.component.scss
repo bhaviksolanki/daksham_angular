@@ -86,3 +86,35 @@
 
     }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+
+    .slider-main-container{
+        width: 800px;
+        height: 400px;
+        margin-left: 10%;
+        margin-top: 2%;
+        margin-bottom: 7%;
+    }
+
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .slider-main-container{
+        width: 500px;
+        height: 250px;
+        margin-left: 2%;
+        margin-top: 2%;
+        margin-bottom: 15%;
+    }
+
+    .slider-container {
+        .slider-item {
+            width: 75%;
+            height: 100%;
+        }
+    }
+
+}
